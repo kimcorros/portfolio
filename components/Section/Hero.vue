@@ -5,12 +5,12 @@ const tags = ['Rare Books', 'Posters', 'Prints', 'Toys', 'LPs', 'Comics', 'Wine'
 <template>
   <div class="flex flex-col lg:flex-row items-center justify-between lg:space-x-[100px] mb-20 lg:mb-0">
     <div class="order-2 flex-1 text-gray max-w-xl text-center lg:text-left">
-      <h2 class="mb-1">
+      <h3 class="mb-1">
         Hello world.
-      </h2>
-      <h2 class="mb-12">
+      </h3>
+      <h3 class="mb-12">
         I’m <span class="text-charcoal underline-pretty">Kim Francis</span>.
-      </h2>
+      </h3>
       <p class="text-lg lg:text-2xl text-charcoal mb-16">
         <strong>Kim</strong> is a software engineer who fell in love with web development. He has helped <i class="text-gray">businesses</i> and <i class="text-gray">individuals</i> in building their <strong>ideas</strong> on the internet.
       </p>
