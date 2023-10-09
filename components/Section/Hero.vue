@@ -18,7 +18,7 @@ const tags = ['Rare Books', 'Posters', 'Prints', 'Toys', 'LPs', 'Comics', 'Wine'
         <Button to="/" class="w-full lg:max-w-fit mb-4 lg:mb-0" secondary>
           Hire Me!
         </Button>
-        <Button to="/resume.pdf" download class="w-full lg:max-w-fit">
+        <Button to="/resume.pdf" target="_blank" class="w-full lg:max-w-fit">
           Download CV <Icon name="ph:download-simple-bold" class="ml-2" />
         </Button>
       </div>
