@@ -31,7 +31,7 @@ onClickOutside(menu, () => showMenu.value = false)
         </NuxtLink>
       </div>
       <div class="hidden lg:flex items-center space-x-2">
-        <Button to="/register" class="max-w-fit" secondary>
+        <Button to="/" class="max-w-fit" secondary>
           Let's talk
         </Button>
       </div>
