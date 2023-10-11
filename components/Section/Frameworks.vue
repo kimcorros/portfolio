@@ -1,6 +1,6 @@
 <template>
   <div class="bg-[#F8F8F8] py-8 px-12 lg:py-14 lg:px-20 relative max-w-screen overflow-hidden slider container">
-    <div class="flex space-x-12 lg:space-x-20 animate-scroll-left">
+    <div class="flex space-x-6 lg:space-x-20 animate-scroll-left">
       <Icon name="logos:vue" class="min-h-[40px] lg:min-h-[80px]  lg:grayscale opacity-40 hover:opacity-100 hover:grayscale-0 min-w-[40px] lg:min-w-[80px]" />
       <Icon name="skill-icons:nuxtjs-dark" class="min-h-[40px] lg:min-h-[80px]  lg:grayscale opacity-40 hover:opacity-100 hover:grayscale-0 min-w-[40px] lg:min-w-[80px]" />
       <Icon name="logos:javascript" class="min-h-[40px] lg:min-h-[80px]  lg:grayscale opacity-40 hover:opacity-100 hover:grayscale-0 min-w-[40px] lg:min-w-[80px]" />
