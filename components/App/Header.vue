@@ -8,7 +8,7 @@ onClickOutside(menu, () => showMenu.value = false)
 </script>
 
 <template>
-  <div class="z-[2] backdrop-blur-3xl">
+  <div class="z-10 backdrop-blur-3xl">
     <div class="container flex items-center justify-between h-16 lg:h-[80px]">
       <NuxtLink to="/" class="flex items-center">
         <Icon name="solar:code-circle-broken" class="h-8 w-8 lg:h-12 lg:w-12 text-charcoal"/>
@@ -17,16 +17,16 @@ onClickOutside(menu, () => showMenu.value = false)
         <NuxtLink to="/">
           Home
         </NuxtLink>
-        <NuxtLink to="/">
+        <NuxtLink :to="{ path: '/', hash: '#about' }">
           About Me
         </NuxtLink>
-        <NuxtLink to="/">
+        <NuxtLink :to="{ path: '/', hash: '#services' }">
           Services
         </NuxtLink>
-        <NuxtLink to="/">
+        <NuxtLink :to="{ path: '/', hash: '#works' }">
           Works
         </NuxtLink>
-        <NuxtLink to="/">
+        <NuxtLink :to="{ path: '/', hash: '#contact' }">
           Contact Me
         </NuxtLink>
       </div>
@@ -48,16 +48,16 @@ onClickOutside(menu, () => showMenu.value = false)
         <NuxtLink to="/">
           Home
         </NuxtLink>
-        <NuxtLink to="/">
+        <NuxtLink :to="{ path: '/', hash: '#about' }" @click.prevent="showMenu = false">
           About Me
         </NuxtLink>
-        <NuxtLink to="/">
+        <NuxtLink :to="{ path: '/', hash: '#services' }" @click.prevent="showMenu = false">
           Services
         </NuxtLink>
-        <NuxtLink to="/">
+        <NuxtLink :to="{ path: '/', hash: '#works' }" @click.prevent="showMenu = false">
           Works
         </NuxtLink>
-        <NuxtLink to="/">
+        <NuxtLink :to="{ path: '/', hash: '#contact' }" @click.prevent="showMenu = false">
           Contact Me
         </NuxtLink>
       </div>

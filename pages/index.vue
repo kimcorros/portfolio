@@ -9,6 +9,7 @@ useHead({
     <SectionHero class="container flex-1" />
     <SectionFrameworks class="mt-24" />
   </div>
-  <SectionAbout class="container flex-1" />
-  <SectionProjects class="container flex-1" />
+  <SectionAbout id="about" class="container flex-1" />
+  <SectionProjects id="works" class="container flex-1" />
+  <SectionContact id="contact" />
 </template>

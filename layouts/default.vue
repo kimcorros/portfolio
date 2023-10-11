@@ -4,6 +4,6 @@
     <div class="relative flex flex-col flex-1 h-full">
       <slot />
     </div>
-    <AppFooter />
+    <!-- <AppFooter /> -->
   </div>
 </template>
