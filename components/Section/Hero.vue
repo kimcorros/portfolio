@@ -15,7 +15,7 @@ const tags = ['Rare Books', 'Posters', 'Prints', 'Toys', 'LPs', 'Comics', 'Wine'
         <strong>Kim</strong> is a software engineer who fell in love with web development. He has helped <i class="text-gray">businesses</i> and <i class="text-gray">individuals</i> in building their <strong>ideas</strong> on the internet.
       </p>
       <div class="flex flex-col lg:flex-row lg:space-x-4 w-full justify-center lg:w-max">
-        <Button to="/" class="w-full lg:max-w-fit mb-4 lg:mb-0" secondary>
+        <Button to="mailto:hello@kimcorros.com" class="w-full lg:max-w-fit mb-4 lg:mb-0" secondary>
           Hire Me!
         </Button>
         <Button to="/resume.pdf" target="_blank" class="w-full lg:max-w-fit">

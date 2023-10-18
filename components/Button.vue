@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const props = defineProps({
-  to: String,
+  to: [String, Object],
   secondary: {
     type: Boolean,
     default: false,

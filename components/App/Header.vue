@@ -20,9 +20,9 @@ onClickOutside(menu, () => showMenu.value = false)
         <NuxtLink :to="{ path: '/', hash: '#about' }">
           About Me
         </NuxtLink>
-        <NuxtLink :to="{ path: '/', hash: '#services' }">
+        <!-- <NuxtLink :to="{ path: '/', hash: '#services' }">
           Services
-        </NuxtLink>
+        </NuxtLink> -->
         <NuxtLink :to="{ path: '/', hash: '#works' }">
           Works
         </NuxtLink>
@@ -31,7 +31,7 @@ onClickOutside(menu, () => showMenu.value = false)
         </NuxtLink>
       </div>
       <div class="hidden lg:flex items-center space-x-2">
-        <Button to="/" class="max-w-fit" secondary>
+        <Button :to="{ path: '/', hash: '#contact' }" class="max-w-fit" secondary>
           Let's talk
         </Button>
       </div>
@@ -51,9 +51,9 @@ onClickOutside(menu, () => showMenu.value = false)
         <NuxtLink :to="{ path: '/', hash: '#about' }" @click.prevent="showMenu = false">
           About Me
         </NuxtLink>
-        <NuxtLink :to="{ path: '/', hash: '#services' }" @click.prevent="showMenu = false">
+        <!-- <NuxtLink :to="{ path: '/', hash: '#services' }" @click.prevent="showMenu = false">
           Services
-        </NuxtLink>
+        </NuxtLink> -->
         <NuxtLink :to="{ path: '/', hash: '#works' }" @click.prevent="showMenu = false">
           Works
         </NuxtLink>
