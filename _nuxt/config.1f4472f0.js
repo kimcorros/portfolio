@@ -1,0 +1,1 @@
+import{a1 as p,a2 as i,l as o,X as t}from"./entry.d4b241da.js";const e=p({title:"Meet Kim"}),f={nuxt:{}},a=i(e,f);function u(){const n=t();return n._appConfig||(n._appConfig=o(a)),n._appConfig}export{u};
