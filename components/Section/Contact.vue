@@ -55,6 +55,7 @@
 
 <script setup lang="ts">
 import emailjs from '@emailjs/browser'
+import { useReCaptcha } from 'vue-recaptcha-v3';
 
 const formData = reactive({
   name: '',
@@ -64,12 +65,24 @@ const formData = reactive({
 })
 const loading = ref<boolean>(false)
 const showMessage = ref<boolean>(false)
+const recaptchaInstance = useReCaptcha();
 
 const formRef = ref(null)
 
-const sendMail = () => {
+const recaptcha = async () => {
+  await recaptchaInstance?.recaptchaLoaded();
+
+  const token = await recaptchaInstance?.executeRecaptcha('submit');
+
+  return token;
+};
+
+const sendMail = async () => {
   loading.value = true
-  emailjs.sendForm('service_edek6x4', 'template_7zw6pfs', formRef.value as any, '6hBuRz84m27eTckvb')
+  const token = await recaptcha()
+
+  if (token) {
+    emailjs.sendForm('service_edek6x4', 'template_7zw6pfs', formRef.value as any, '6hBuRz84m27eTckvb')
     .then((result) => {
       loading.value = false
       showMessage.value = true
@@ -83,5 +96,6 @@ const sendMail = () => {
     }, (error) => {
       console.log('FAILED...', error.text);
     })
+  }
 }
 </script>
