@@ -1,0 +1,1 @@
+import{k as o,m as p,W as i,G as t}from"./jU-ccEM-.js";const e=o({title:"Kim Francis Corros — Full Stack Developer"}),s={nuxt:{}},a=p(e,s);function r(){const n=i();return n._appConfig||=t(a),n._appConfig}export{r as u};
