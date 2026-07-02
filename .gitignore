@@ -22,3 +22,9 @@ logs
 .env
 .env.*
 !.env.example
+
+# Resume generation (kept local — only public/resume.pdf ships with the site)
+/resume.html
+/resume.pdf
+/resume-v2-draft.md
+/build-resume.sh

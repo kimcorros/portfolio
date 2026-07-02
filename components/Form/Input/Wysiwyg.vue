@@ -62,45 +62,45 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="flex flex-col mb-4">
-    <label v-if="label" class="text-black font-bold text-sm mb-1">
-      {{ label }} <span v-if="required" class="text-danger"> *</span>
+    <label v-if="label" class="text-text-primary font-bold text-sm mb-1">
+      {{ label }} <span v-if="required" class="text-accent"> *</span>
     </label>
-    <div v-if="editor" class="border-2 border-black focus:border-primary focus:outline-2 focus:outline-primary focus:outline-offset-2 px-6 rounded-md text-sm font-bold text-black disabled:bg-opacity-80 py-4">
+    <div v-if="editor" class="border border-border focus-within:border-accent/50 px-6 rounded-lg text-sm font-bold text-text-primary bg-dark-secondary py-4">
       <div v-if="editor" class="mb-6 flex">
-        <button :disabled="!editor.can().chain().focus().toggleBold().run()" :class="{ 'bg-black text-white hover:text-black': editor.isActive('bold') }" class="hover:bg-primary rounded flex justify-center items-center h-7 w-7 cursor-pointer mr-1 text-black" @click="editor.chain().focus().toggleBold().run()">
+        <button :disabled="!editor.can().chain().focus().toggleBold().run()" :class="{ 'bg-dark-tertiary text-accent': editor.isActive('bold') }" class="hover:bg-dark-tertiary rounded flex justify-center items-center h-7 w-7 cursor-pointer mr-1 text-text-secondary" @click="editor.chain().focus().toggleBold().run()">
           <IconEditorBold class="h-6 w-6" />
         </button>
-        <button :disabled="!editor.can().chain().focus().toggleItalic().run()" :class="{ 'bg-black text-white hover:text-black': editor.isActive('italic') }" class="hover:bg-primary rounded flex justify-center items-center h-7 w-7 cursor-pointer mr-1 text-black" @click="editor.chain().focus().toggleItalic().run()">
+        <button :disabled="!editor.can().chain().focus().toggleItalic().run()" :class="{ 'bg-dark-tertiary text-accent': editor.isActive('italic') }" class="hover:bg-dark-tertiary rounded flex justify-center items-center h-7 w-7 cursor-pointer mr-1 text-text-secondary" @click="editor.chain().focus().toggleItalic().run()">
           <IconEditorItalic class="h-6 w-6" />
         </button>
-        <button :disabled="!editor.can().chain().focus().toggleStrike().run()" :class="{ 'bg-black text-white hover:text-black': editor.isActive('strike') }" class="hover:bg-primary rounded flex justify-center items-center h-7 w-7 cursor-pointer mr-1 text-black" @click="editor.chain().focus().toggleStrike().run()">
+        <button :disabled="!editor.can().chain().focus().toggleStrike().run()" :class="{ 'bg-dark-tertiary text-accent': editor.isActive('strike') }" class="hover:bg-dark-tertiary rounded flex justify-center items-center h-7 w-7 cursor-pointer mr-1 text-text-secondary" @click="editor.chain().focus().toggleStrike().run()">
           <IconEditorStrike class="h-6 w-6" />
         </button>
-        <button :class="{ 'bg-black text-white hover:text-black': editor.isActive('paragraph') }" class="hover:bg-primary rounded flex justify-center items-center h-7 w-7 cursor-pointer mr-1 text-black" @click="editor.chain().focus().setParagraph().run()">
+        <button :class="{ 'bg-dark-tertiary text-accent': editor.isActive('paragraph') }" class="hover:bg-dark-tertiary rounded flex justify-center items-center h-7 w-7 cursor-pointer mr-1 text-text-secondary" @click="editor.chain().focus().setParagraph().run()">
           <IconEditorParagraph class="h-4 w-5" />
         </button>
-        <button :class="{ 'bg-black text-white hover:text-black': editor.isActive('heading', { level: 2 }) }" class="hover:bg-primary rounded flex justify-center items-center h-7 w-7 cursor-pointer mr-1 text-black" @click="editor.chain().focus().toggleHeading({ level: 2 }).run()">
+        <button :class="{ 'bg-dark-tertiary text-accent': editor.isActive('heading', { level: 2 }) }" class="hover:bg-dark-tertiary rounded flex justify-center items-center h-7 w-7 cursor-pointer mr-1 text-text-secondary" @click="editor.chain().focus().toggleHeading({ level: 2 }).run()">
           <IconEditorH2 class="h-5 w-5" />
         </button>
-        <button class="hover:bg-primary rounded flex justify-center items-center h-7 w-7 cursor-pointer mr-1 text-black" :class="{ 'bg-black text-white hover:text-black': editor.isActive('heading', { level: 3 }) }" @click="editor.chain().focus().toggleHeading({ level: 3 }).run()">
+        <button class="hover:bg-dark-tertiary rounded flex justify-center items-center h-7 w-7 cursor-pointer mr-1 text-text-secondary" :class="{ 'bg-dark-tertiary text-accent': editor.isActive('heading', { level: 3 }) }" @click="editor.chain().focus().toggleHeading({ level: 3 }).run()">
           <IconEditorH3 class="h-5 w-5" />
         </button>
-        <button class="hover:bg-primary rounded flex justify-center items-center h-7 w-7 cursor-pointer mr-1 text-black" :class="{ 'bg-black text-white hover:text-black': editor.isActive('bulletList') }" @click="editor.chain().focus().toggleBulletList().run()">
+        <button class="hover:bg-dark-tertiary rounded flex justify-center items-center h-7 w-7 cursor-pointer mr-1 text-text-secondary" :class="{ 'bg-dark-tertiary text-accent': editor.isActive('bulletList') }" @click="editor.chain().focus().toggleBulletList().run()">
           <IconEditorBulletList class="h-5 w-5" />
         </button>
-        <button class="hover:bg-primary rounded flex justify-center items-center h-7 w-7 cursor-pointer mr-1 text-black" :class="{ 'bg-black text-white hover:text-black': editor.isActive('orderedList') }" @click="editor.chain().focus().toggleOrderedList().run()">
+        <button class="hover:bg-dark-tertiary rounded flex justify-center items-center h-7 w-7 cursor-pointer mr-1 text-text-secondary" :class="{ 'bg-dark-tertiary text-accent': editor.isActive('orderedList') }" @click="editor.chain().focus().toggleOrderedList().run()">
           <IconEditorOrderedList class="h-5 w-5" />
         </button>
-        <button class="hover:bg-primary rounded flex justify-center items-center h-7 w-7 cursor-pointer mr-1 text-black" :class="{ 'bg-black text-white hover:text-black': editor.isActive('codeBlock') }" @click="editor.chain().focus().toggleCodeBlock().run()">
+        <button class="hover:bg-dark-tertiary rounded flex justify-center items-center h-7 w-7 cursor-pointer mr-1 text-text-secondary" :class="{ 'bg-dark-tertiary text-accent': editor.isActive('codeBlock') }" @click="editor.chain().focus().toggleCodeBlock().run()">
           <IconEditorCode class="h-6 w-6" />
         </button>
-        <button class="hover:bg-primary rounded flex justify-center items-center h-7 w-7 cursor-pointer mr-1 text-black" :class="{ 'bg-black text-white hover:text-black': editor.isActive('blockquote') }" @click="editor.chain().focus().toggleBlockquote().run()">
+        <button class="hover:bg-dark-tertiary rounded flex justify-center items-center h-7 w-7 cursor-pointer mr-1 text-text-secondary" :class="{ 'bg-dark-tertiary text-accent': editor.isActive('blockquote') }" @click="editor.chain().focus().toggleBlockquote().run()">
           <IconEditorQuote class="h-6 w-6" />
         </button>
-        <button class="hover:bg-primary rounded flex justify-center items-center h-7 w-7 cursor-pointer mr-1 text-black" :disabled="!editor.can().chain().focus().undo().run()" @click="editor.chain().focus().undo().run()">
+        <button class="hover:bg-dark-tertiary rounded flex justify-center items-center h-7 w-7 cursor-pointer mr-1 text-text-secondary" :disabled="!editor.can().chain().focus().undo().run()" @click="editor.chain().focus().undo().run()">
           <IconEditorUndo class="h-6 w-6" />
         </button>
-        <button class="hover:bg-primary rounded flex justify-center items-center h-7 w-7 cursor-pointer mr-1 text-black" :disabled="!editor.can().chain().focus().redo().run()" @click="editor.chain().focus().redo().run()">
+        <button class="hover:bg-dark-tertiary rounded flex justify-center items-center h-7 w-7 cursor-pointer mr-1 text-text-secondary" :disabled="!editor.can().chain().focus().redo().run()" @click="editor.chain().focus().redo().run()">
           <IconEditorRedo class="h-6 w-6" />
         </button>
       </div>
@@ -124,11 +124,11 @@ onBeforeUnmount(() => {
   }
 
   code {
-    @apply bg-gray bg-opacity-25 text-gray;
+    @apply bg-dark-tertiary text-text-secondary;
   }
 
   pre {
-    @apply bg-black text-white hover:text-black font-mono px-4 py-3 rounded-lg;
+    @apply bg-dark-tertiary text-text-primary px-4 py-3 rounded-lg;
 
     code {
       color: inherit;
@@ -139,17 +139,17 @@ onBeforeUnmount(() => {
   }
 
   blockquote {
-    @apply border-l-2 border-gray pl-4 border-opacity-25 text-gray;
+    @apply border-l-2 border-border pl-4 text-text-secondary;
   }
 
   hr {
     border: none;
-    border-top: 2px solid rgba(#0D0D0D, 0.1);
+    border-top: 2px solid rgba(255, 255, 255, 0.1);
     margin: 2rem 0;
   }
 
   & p.is-editor-empty:first-child::before {
-    @apply text-gray text-opacity-50;
+    @apply text-text-tertiary;
     content: attr(data-placeholder);
     float: left;
     height: 0;

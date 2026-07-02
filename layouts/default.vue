@@ -1,9 +1,11 @@
 <template>
-  <div class="flex flex-col min-h-screen">
-    <AppHeader class="sticky top-0" />
-    <div class="relative flex flex-col flex-1 h-full">
+  <div class="relative flex flex-col min-h-screen">
+    <UIAuroraBackground />
+    <UIScrollProgress />
+    <AppHeader />
+    <main class="relative z-10 flex flex-col flex-1">
       <slot />
-    </div>
-    <!-- <AppFooter /> -->
+    </main>
+    <AppFooter class="relative z-10" />
   </div>
 </template>

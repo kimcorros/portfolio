@@ -1,3 +1,3 @@
 export default defineAppConfig({
-  title: 'Meet Kim'
+  title: 'Kim Francis Corros — Full Stack Developer',
 })

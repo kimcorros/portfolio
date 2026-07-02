@@ -1,53 +1,79 @@
+<script setup lang="ts">
+const sectionRef = ref<HTMLElement>()
+
+const technologies = [
+  { icon: 'simple-icons:claude', name: 'Claude' },
+  { icon: 'simple-icons:openai', name: 'OpenAI' },
+  { icon: 'logos:vue', name: 'Vue.js' },
+  { icon: 'logos:nuxt-icon', name: 'Nuxt' },
+  { icon: 'logos:react', name: 'React' },
+  { icon: 'logos:nextjs-icon', name: 'Next.js' },
+  { icon: 'logos:javascript', name: 'JavaScript' },
+  { icon: 'logos:typescript-icon', name: 'TypeScript' },
+  { icon: 'logos:laravel', name: 'Laravel' },
+  { icon: 'logos:php', name: 'PHP' },
+  { icon: 'logos:nodejs-icon', name: 'Node.js' },
+  { icon: 'logos:tailwindcss-icon', name: 'Tailwind' },
+  { icon: 'logos:mysql', name: 'MySQL' },
+  { icon: 'logos:docker-icon', name: 'Docker' },
+  { icon: 'logos:linux-tux', name: 'Linux' },
+  { icon: 'logos:bootstrap', name: 'Bootstrap' },
+]
+
+onMounted(() => {
+  const { fadeIn } = useGsapAnimations()
+  fadeIn('.tech-slider', sectionRef.value)
+})
+</script>
+
 <template>
-  <div class="bg-[#F8F8F8] py-8 px-12 lg:py-14 lg:px-20 relative max-w-screen overflow-hidden slider container">
-    <div class="flex space-x-6 lg:space-x-20 animate-scroll-left">
-      <Icon name="logos:vue" class="min-h-[40px] lg:min-h-[80px]  lg:grayscale opacity-40 hover:opacity-100 hover:grayscale-0 min-w-[40px] lg:min-w-[80px]" />
-      <Icon name="skill-icons:nuxtjs-dark" class="min-h-[40px] lg:min-h-[80px]  lg:grayscale opacity-40 hover:opacity-100 hover:grayscale-0 min-w-[40px] lg:min-w-[80px]" />
-      <Icon name="logos:javascript" class="min-h-[40px] lg:min-h-[80px]  lg:grayscale opacity-40 hover:opacity-100 hover:grayscale-0 min-w-[40px] lg:min-w-[80px]" />
-      <Icon name="skill-icons:laravel-dark" class="min-h-[40px] lg:min-h-[80px]  lg:grayscale opacity-40 hover:opacity-100 hover:grayscale-0 min-w-[40px] lg:min-w-[80px]" />
-      <Icon name="skill-icons:tailwindcss-dark" class="min-h-[40px] lg:min-h-[80px]  lg:grayscale opacity-40 hover:opacity-100 hover:grayscale-0 min-w-[40px] lg:min-w-[80px]" />
-      <Icon name="skill-icons:react-dark" class="min-h-[40px] lg:min-h-[80px]  lg:grayscale opacity-40 hover:opacity-100 hover:grayscale-0 min-w-[40px] lg:min-w-[80px]" />
-      <Icon name="skill-icons:php-dark" class="min-h-[40px] lg:min-h-[80px]  lg:grayscale opacity-40 hover:opacity-100 hover:grayscale-0 min-w-[40px] lg:min-w-[80px]" />
-      <Icon name="skill-icons:linux-dark" class="min-h-[40px] lg:min-h-[80px]  lg:grayscale opacity-40 hover:opacity-100 hover:grayscale-0 min-w-[40px] lg:min-w-[80px]" />
-      <Icon name="logos:mysql" class="min-h-[40px] lg:min-h-[80px]  lg:grayscale opacity-40 hover:opacity-100 hover:grayscale-0 min-w-[40px] lg:min-w-[80px]" />
-      <Icon name="devicon:typescript" class="min-h-[40px] lg:min-h-[80px]  lg:grayscale opacity-40 hover:opacity-100 hover:grayscale-0 min-w-[40px] lg:min-w-[80px]" />
-      <Icon name="logos:vue" class="min-h-[40px] lg:min-h-[80px]  lg:grayscale opacity-40 hover:opacity-100 hover:grayscale-0 min-w-[40px] lg:min-w-[80px]" />
-      <Icon name="skill-icons:nuxtjs-dark" class="min-h-[40px] lg:min-h-[80px]  lg:grayscale opacity-40 hover:opacity-100 hover:grayscale-0 min-w-[40px] lg:min-w-[80px]" />
-      <Icon name="logos:javascript" class="min-h-[40px] lg:min-h-[80px]  lg:grayscale opacity-40 hover:opacity-100 hover:grayscale-0 min-w-[40px] lg:min-w-[80px]" />
-      <Icon name="skill-icons:laravel-dark" class="min-h-[40px] lg:min-h-[80px]  lg:grayscale opacity-40 hover:opacity-100 hover:grayscale-0 min-w-[40px] lg:min-w-[80px]" />
-      <Icon name="skill-icons:tailwindcss-dark" class="min-h-[40px] lg:min-h-[80px]  lg:grayscale opacity-40 hover:opacity-100 hover:grayscale-0 min-w-[40px] lg:min-w-[80px]" />
-      <Icon name="skill-icons:react-dark" class="min-h-[40px] lg:min-h-[80px]  lg:grayscale opacity-40 hover:opacity-100 hover:grayscale-0 min-w-[40px] lg:min-w-[80px]" />
-      <Icon name="skill-icons:php-dark" class="min-h-[40px] lg:min-h-[80px]  lg:grayscale opacity-40 hover:opacity-100 hover:grayscale-0 min-w-[40px] lg:min-w-[80px]" />
-      <Icon name="skill-icons:linux-dark" class="min-h-[40px] lg:min-h-[80px]  lg:grayscale opacity-40 hover:opacity-100 hover:grayscale-0 min-w-[40px] lg:min-w-[80px]" />
-      <Icon name="logos:mysql" class="min-h-[40px] lg:min-h-[80px]  lg:grayscale opacity-40 hover:opacity-100 hover:grayscale-0 min-w-[40px] lg:min-w-[80px]" />
-      <Icon name="devicon:typescript" class="min-h-[40px] lg:min-h-[80px]  lg:grayscale opacity-40 hover:opacity-100 hover:grayscale-0 min-w-[40px] lg:min-w-[80px]" />
+  <section ref="sectionRef" class="py-12 border-y border-border overflow-hidden">
+    <div class="tech-slider relative">
+      <!-- Fade edges -->
+      <div class="absolute left-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-r from-dark to-transparent z-10 pointer-events-none" />
+      <div class="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-dark to-transparent z-10 pointer-events-none" />
+
+      <div class="marquee-track flex w-max animate-marquee">
+        <ul
+          v-for="copy in 2"
+          :key="`marquee-copy-${copy}`"
+          class="flex shrink-0 list-none m-0 p-0"
+          :aria-hidden="copy === 2 ? 'true' : 'false'"
+        >
+          <li
+            v-for="tech in technologies"
+            :key="`${copy}-${tech.name}`"
+            class="flex items-center space-x-3 px-6 md:px-10 shrink-0 group"
+          >
+            <Icon
+              :name="tech.icon"
+              class="h-6 w-6 md:h-8 md:w-8 opacity-40 group-hover:opacity-100 transition-opacity duration-300"
+            />
+            <span class="text-sm text-text-tertiary group-hover:text-text-secondary transition-colors whitespace-nowrap">
+              {{ tech.name }}
+            </span>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
+  </section>
 </template>
 
-<style lang="scss" scoped>
-.slider::before,
-.slider::after {
-  @apply w-[100px] lg:w-[200px];
-  background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
-  content: '';
-  height: 100%;
-  position: absolute;
-  z-index: 2;
+<style scoped>
+.marquee-track {
+  /* GPU-compositing hints prevent sub-pixel snap on loop boundary */
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
 }
-
-.slider::before {
-    left: 0;
-    top: 0;
+.animate-marquee {
+  animation: marquee 40s linear infinite;
 }
-
-.slider::after {
-    right: 0;
-    top: 0;
-    transform: rotateZ(180deg);
+@keyframes marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
 }
-
-.fade-cover {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.9) 100%);
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee { animation: none; }
 }
 </style>

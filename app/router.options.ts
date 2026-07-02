@@ -1,38 +1,34 @@
-import type { RouterConfig } from '@nuxt/schema';
+import type { RouterConfig } from '@nuxt/schema'
 
-// https://router.vuejs.org/api/#routeroptions
 export default <RouterConfig>{
-  scrollBehavior: (to, from, savedPosition) => {
-    // scroll to hash, useful for using to="#some-id" in NuxtLink
-    // ex: <NuxtLink to="#top"> To Top </ NuxtLink>
+  scrollBehavior(to, from, savedPosition) {
     if (to.hash) {
-      console.log('to.hash: ', to.hash);
-      return {
-        el: to.hash,
-        top: 80,
-        behavior: 'smooth',
-      };
+      // When navigating from another route (e.g. /projects/intokia -> /#contact),
+      // the target section isn't in the DOM yet when scrollBehavior runs. Poll for
+      // it, then resolve the smooth-scroll target.
+      return new Promise((resolve) => {
+        const target = { el: to.hash, top: 80, behavior: 'smooth' as ScrollBehavior }
+        let tries = 0
+        const attempt = () => {
+          if (document.querySelector(to.hash) || tries >= 60) {
+            resolve(target)
+          }
+          else {
+            tries += 1
+            setTimeout(attempt, 50)
+          }
+        }
+        // Same-page: scroll immediately. Cross-page: give the new page a moment to mount.
+        setTimeout(attempt, from.path === to.path ? 0 : 150)
+      })
     }
 
-    // The remainder is optional but maybe useful as well
-
-    // if link is to same page, scroll to top with smooth behavior
-    if (to === from) {
-      return {
-        left: 0,
-        top: 0,
-        behavior: 'smooth',
-      };
+    if (savedPosition) {
+      return new Promise((resolve) => {
+        setTimeout(() => resolve(savedPosition), 300)
+      })
     }
 
-    // this will use saved scroll position on browser forward/back navigation
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve({
-          left: savedPosition?.left || 0,
-          top: savedPosition?.top || 0,
-        });
-      }, 500);
-    });
+    return { left: 0, top: 0, behavior: 'smooth' }
   },
-};
+}

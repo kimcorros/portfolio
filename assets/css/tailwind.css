@@ -1,38 +1,101 @@
-@import "./fonts.scss";
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-a {
-  @apply before:w-0;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-dark text-text-primary font-sans antialiased;
+  }
+
+  a {
+    @apply before:w-0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold tracking-tight;
+  }
+
+  h1 { @apply text-4xl md:text-5xl lg:text-6xl }
+  h2 { @apply text-3xl md:text-4xl lg:text-5xl }
+  h3 { @apply text-2xl md:text-3xl }
+  h4 { @apply text-xl md:text-2xl }
+
+  ::selection {
+    @apply bg-accent/20 text-accent;
+  }
 }
 
-a:hover {
-  @apply underline-pretty before:transition-all before:duration-500 before:ease-in-out before:w-full;
+@layer components {
+  .section-padding {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-accent to-indigo bg-clip-text text-transparent;
+  }
 }
-
-h1,h2,h3,h4,h5,h6 {
-  @apply font-serif font-bold;
-}
-
-h1 { @apply text-6xl md:text-7xl lg:text-8xl }
-h2 { @apply text-5xl md:text-6xl lg:text-7xl }
-h3 { @apply text-4xl md:text-5xl lg:text-6xl }
-h4 { @apply text-3xl md:text-4xl lg:text-5xl }
-h5 { @apply text-2xl md:text-3xl lg:text-4xl }
-h6 { @apply text-xl md:text-2xl lg:text-3xl }
-
-ul { @apply list-disc }
-
-.content > p { @apply mb-4 };
 
 .grecaptcha-badge {
   @apply hidden;
 }
 
-@layer components {
-  .underline-pretty {
-    @apply before:content-[''] before:absolute before:left-0 before:bottom-[0.05em] before:w-full before:h-[0.1em] before:transform before:-skew-x-12 before:bg-accent before:-z-[1] relative;
-  }
+/* ---- 3D / depth utilities ---- */
+.perspective-1000 { perspective: 1000px; }
+.perspective-1400 { perspective: 1400px; }
+.preserve-3d { transform-style: preserve-3d; }
+
+/* Glare overlay injected by the v-tilt directive */
+.tilt-glare {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  z-index: 3;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  transition: opacity 0.35s ease;
+}
+
+/* (liquid-glass experiment removed — clean solid/outline UI restored) */
+/* Animated conic gradient border (About photo frame) */
+@property --border-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+.conic-frame {
+  position: relative;
+}
+.conic-frame::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--border-angle),
+    rgba(110, 231, 183, 0.0) 0%,
+    rgba(110, 231, 183, 0.8) 12%,
+    rgba(129, 140, 248, 0.6) 26%,
+    rgba(110, 231, 183, 0.0) 40%,
+    rgba(110, 231, 183, 0.0) 60%,
+    rgba(129, 140, 248, 0.5) 74%,
+    rgba(110, 231, 183, 0.7) 88%,
+    rgba(110, 231, 183, 0.0) 100%
+  );
+  animation: border-rotate 7s linear infinite;
+  z-index: -1;
+}
+@keyframes border-rotate {
+  to { --border-angle: 360deg; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .conic-frame::before { animation: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
 }

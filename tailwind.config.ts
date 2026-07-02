@@ -13,37 +13,64 @@ module.exports = {
   theme: {
     container: {
       center: true,
-      padding: '2rem',
+      padding: '1.5rem',
+      screens: {
+        sm: '640px',
+        md: '768px',
+        lg: '1024px',
+        xl: '1200px',
+      },
     },
     extend: {
       fontFamily: {
         sans: ['Plus Jakarta Sans', ...defaultTheme.fontFamily.sans],
-        serif: ['Playfair Display', ...defaultTheme.fontFamily.serif],
+        heading: ['Outfit', ...defaultTheme.fontFamily.sans],
+        mono: ['IBM Plex Mono', ...defaultTheme.fontFamily.mono],
       },
       keyframes: {
         'scroll-left': {
           '0%': { transform: 'translateX(0)' },
-          '100%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(-50%)' },
         },
-        'scroll-right': {
-          '0%': { transform: 'translateX(-100%)' },
-          '100%': { transform: 'translateX(0)' },
+        'fade-up': {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
         },
       },
       animation: {
-        'scroll-left': 'scroll-left 80s linear infinite',
-        'scroll-right': 'scroll-right 80s linear infinite',
+        'scroll-left': 'scroll-left 40s linear infinite',
+        'fade-up': 'fade-up 0.6s ease-out forwards',
       },
     },
     colors: {
-      black: '#000000',
+      transparent: 'transparent',
+      current: 'currentColor',
+      dark: {
+        DEFAULT: '#0B0D17',
+        secondary: '#111827',
+        tertiary: '#1A1F35',
+      },
+      text: {
+        primary: '#E4E4E7',
+        secondary: '#9CA3AF',
+        tertiary: '#6B7280',
+      },
+      accent: {
+        DEFAULT: '#6EE7B7',
+        hover: '#34D399',
+        glow: 'rgba(110, 231, 183, 0.15)',
+      },
+      indigo: {
+        DEFAULT: '#818CF8',
+        hover: '#6366F1',
+      },
+      border: {
+        DEFAULT: '#1F2937',
+        hover: '#374151',
+      },
       white: '#FFFFFF',
-      primary: '#0077FF',
-      accent: '#DDF247',
-      charcoal: '#333333',
-      light: '#DDDDDD',
-      gray: '#666666',
-    }
+      black: '#000000',
+    },
   },
   plugins: [
     require('@tailwindcss/typography'),
